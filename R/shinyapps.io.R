@@ -1,0 +1,7 @@
+install.packages("devtools")
+library(devtools)
+devtools::install_github('rstudio/shinyapps')
+shinyapps::setAccountInfo(name='iskanderblue', token='C1562FB672289DEAD3CB1C4BF7310FF7', secret='M6XMDWa3zRx5vHMgjOUTdWL3P7yzAMmDio3R4Ykq')
+library(shinyapps)
+setwd("D:/Programming/buying.the.means.of.production/btmop.shiny")
+shinyapps::deployApp("./inst/btmop.shiny")
