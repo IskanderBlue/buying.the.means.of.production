@@ -5,16 +5,8 @@
 
 library(shiny)
 
-# Define UI for dataset viewer application
 shinyUI(fluidPage(
-     
-     # Application title
-     titlePanel("Capitalist socialism!"),
-     
-     # Sidebar with controls to provide a caption, select a dataset,
-     # and specify the number of observations to view. Note that
-     # changes made to the caption in the textInput control are
-     # updated in the output area immediately as you type
+          titlePanel("Capitalist socialism!"),
      sidebarLayout(
           sidebarPanel(
                selectInput("state", "Choose a state:", 
@@ -23,9 +15,6 @@ shinyUI(fluidPage(
                h3("Sources:"),
                htmlOutput("sources")
           ),
-          
-          # Show the caption, a summary of the dataset and an HTML 
-          # table with the requested number of observations
           mainPanel(
                h3("Years of savings until workers could..."),
                h4("...control all publically held firms:"),
