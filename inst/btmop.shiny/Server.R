@@ -1,7 +1,7 @@
 # setwd("D:/Programming/buying.the.means.of.production/btmop.shiny")
-# Server
+# Server / behind the scenes code.
 library(shiny)
-
+# My information sources.  It would be nice to find more recent data.  
 sources <- c(
      Canada = HTML('<p>2012 Canadian GDP: <code>1831.2</code><br>
                    Wages, Salaries, & Supplementary Income: <code>926.2</code><br>
@@ -17,23 +17,20 @@ sources <- c(
                 <p><a href = "https://www.quandl.com/collections/economics/stock-market-capitalization-by-country">Price of publically traded stocks</a> in the USA, billions of 2012 dollars: <code>18668</code></p>
                 <p>Proportion of US firms publically held by revenue in 2007 <a href = "https://www.sba.gov/sites/default/files/rs385tot_0.pdf">(page 11)</a>: <code>0.636</code></p>')
 )
-
-
-
+# This is
 shinyServer(function(input, output) {
-     
+     # stateInput and sourcesInput ensure that when the user updates their state choice the UI updates too.
      stateInput <- reactive({
           switch(input$state,
                  "Canada" = 2016/ (926.2/1.0477),
                  "USA" = 18668/ (15556.3 * .443) )
      })
-     
      sourcesInput <- reactive({
           switch(input$state,
                  "Canada" = 1,
                  "USA" = 2)
      })
-     
+     # These control how the output varies according to user choices.  
      output$publicControl <- renderText({
           stateInput() / (input$pct/100) /2
      })

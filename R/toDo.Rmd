@@ -5,7 +5,7 @@ date: "September 4, 2015"
 output: html_document
 ---
 
-- Comment on code.
+/ Comment on code.
 - Change units to years and weeks.
 - take into account dividends
 ? Add other countries?
