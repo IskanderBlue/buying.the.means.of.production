@@ -1,0 +1,60 @@
+---
+title: "Conservative Socialism"
+author: "Robert Lee"
+date: "September 4, 2015"
+output: html_document
+---
+
+### In Canada:  
+
+2012 Canadian GDP:  `1831.2`
+
+Wages, Salaries & Supplementary Labour Income:  `926.2` 
+
+[(Both in billions of current (2015) Canadian dollars.)](http://www.international.gc.ca/economist-economiste/statistics-statistiques/data-facts-fiches/Facts_fiches-Canada_Quarterly-trimestriel_Ec-Ind.aspx?lang=eng)
+
+Canadian publically traded stocks [billions of 2012 US dollars](https://www.quandl.com/collections/economics/stock-market-capitalization-by-country):  `2016` 
+
+Since in 2012, the [CAD/USD exchange ratio](http://www.canadianforex.ca/forex-tools/historical-rate-tools/yearly-average-rates) was `1.000230`, I'm ignoring it.
+
+
+[Canadian inflation](http://www.bankofcanada.ca/rates/related/inflation-calculator/) from 2012 to 2015: `1.0477`
+
+Current labour income converted to 2012 dollars: ``r 926.2 / 1.0477``
+
+Years of labour compensation to buy all publically traded Canadian stocks in 2012: ``r 2016/ (926.2/1.0477)``
+
+Proportion of US firms publically held (by revenue) in 2007 [(see page 11)](https://www.sba.gov/sites/default/files/rs385tot_0.pdf):
+`0.636` 
+
+Approximate years of labour compensation to buy all Canadian firms: ``r 2016/ (926.2/1.0477) / 0.636``
+
+Assume 20% savings -- workers as a whole save up 20% of their compensation to seize the means of production:  ``r 2016/ (926.2/1.0477) / 0.636 / .2`` years to revolution.  Note that if profits from firm ownership are used to fund further purchases, the revolution comes sooner.  Also, you can halve those times if you just want majority ownership for control rather than full ownership for full profits.
+
+
+### In the USA
+
+Share of GDI (gross domestic income) [going to wages and salaries](https://research.stlouisfed.org/fred2/series/W269RE1A156NBEA) in 2011: ``r 0.443``
+
+GDI in 2011 (billions of $): ``r 15556.3``
+
+GDI in 2012 (billions of $): ``r 16358.5`` 
+
+[Source](https://research.stlouisfed.org/fred2/series/W269RE1A156NBEA)
+
+[Price of publically traded stocks](https://www.quandl.com/collections/economics/stock-market-capitalization-by-country) in USA, 2012 billions of dollars:  ``r 18668``
+
+Years of labour compensation to buy publically traded stocks in USA, using 2011 GDI, 2011 labour share, 2012 market cap:  ``r 18668/ (15556.3 * .443)``
+
+Years of labour compensation to buy publically traded stocks in USA, using 2012 GDI, 2011 labour share, 2012 market cap:  ``r 18668/ (16358.5 * .443)``
+
+Proportion of US firms publically held by revenue in 2007 [(page 11)](https://www.sba.gov/sites/default/files/rs385tot_0.pdf):  ``r 0.636``
+
+Approximate years of compensation to buy all publically traded US stocks:  ``r 18668/ (15556.3 * .443) / 0.636``
+
+Assume 20% savings -- workers as a whole save up 20% of their compensation to seize the means of production:  ``r 18668/ (15556.3 * .443) / 0.636 / .2`` years to revolution.  Note that if profits from firm ownership are used to fund further purchases, the revolution comes sooner.  Also, you can halve those times if you just want majority ownership for control rather than full ownership for full profits.
+
+```{r}
+library(shiny)
+runApp("btmop", display.mode = "showcase").
+```
